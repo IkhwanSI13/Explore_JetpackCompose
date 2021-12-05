@@ -1,4 +1,4 @@
-package com.ikhwankoto.sample_jetpackcompose.state
+package com.ikhwankoto.sample_jetpackcompose.layout
 
 import android.os.Bundle
 import android.util.Log
