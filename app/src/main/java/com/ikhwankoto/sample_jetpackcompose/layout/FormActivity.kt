@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ikhwankoto.sample_jetpackcompose.R
+import com.ikhwankoto.sample_jetpackcompose.layout.view.TextFieldView
 import com.ikhwankoto.sample_jetpackcompose.ui.theme.Sample_JetpackComposeTheme
 
 class FormActivity : ComponentActivity() {
@@ -44,9 +45,7 @@ class FormActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Sample_JetpackComposeTheme {
-                FormActivityView()
-            }
+            FormActivityView()
         }
     }
 }
@@ -79,7 +78,6 @@ fun FormActivityView() {
                 RadioView()
                 SliderView()
                 SnackBarView()
-                SwitchView()
                 Button(
                     modifier = Modifier
                         .padding(top = 24.dp)
@@ -96,142 +94,6 @@ fun FormActivityView() {
                 }
             }
         }
-    )
-}
-
-@OptIn(ExperimentalComposeUiApi::class)
-@Composable
-fun TextFieldView() {
-    val keyboardController = LocalSoftwareKeyboardController.current
-
-    val textStateNormal = rememberSaveable { mutableStateOf("") }
-    val textStateType1 = rememberSaveable { mutableStateOf("") }
-    val textStateType2 = rememberSaveable { mutableStateOf("") }
-
-    Text(
-        text = "TextField",
-        modifier = Modifier.padding(top = 24.dp),
-        style = TextStyle(fontSize = 18.sp),
-        fontWeight = FontWeight(800)
-    )
-    TextField(
-        value = textStateNormal.value,
-        onValueChange = { textStateNormal.value = it },
-        modifier = Modifier
-            .padding(top = 12.dp)
-            .fillMaxWidth(),
-        label = { Text("TextField Normal") }
-    )
-    OutlinedTextField(
-        value = textStateNormal.value,
-        onValueChange = { textStateNormal.value = it },
-        modifier = Modifier
-            .padding(top = 12.dp)
-            .fillMaxWidth(),
-        label = { Text("OutlinedTextField Normal") }
-    )
-    BasicTextField(
-        value = textStateNormal.value,
-        onValueChange = { textStateNormal.value = it },
-        modifier = Modifier
-            .padding(top = 12.dp)
-            .fillMaxWidth(),
-    )
-    TextField(
-        value = textStateType1.value,
-        onValueChange = { textStateType1.value = it },
-        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
-        keyboardActions = KeyboardActions(onDone = {
-            //Todo something else
-            keyboardController?.hide()
-        }), modifier = Modifier
-            .padding(top = 12.dp)
-//                        .height(72.dp)
-            .fillMaxWidth(),
-        label = { Text(text = "TextField Type1", color = Color.White) },
-        textStyle = TextStyle(color = Color.White),
-        shape = RoundedCornerShape(24.dp),
-        colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = colorResource(id = R.color.purple_200),
-        ),
-        leadingIcon = {
-            Image(
-                painterResource(R.drawable.ic_cart),
-                contentDescription = "",
-                Modifier
-                    .size(24.dp)
-            )
-        }
-    )
-    TextField(
-        value = textStateType2.value,
-        onValueChange = { textStateType2.value = it },
-        modifier = Modifier
-            .padding(top = 12.dp)
-            .fillMaxWidth(),
-        isError = true,
-        label = { Text(text = "TextField Type2") },
-        trailingIcon = {
-            Image(
-                painterResource(R.drawable.ic_umbrella),
-                contentDescription = "",
-                Modifier
-                    .size(24.dp)
-            )
-        }
-    )
-
-    ///
-    Text(
-        text = "Custom TextField (With another layout)",
-        modifier = Modifier.padding(top = 24.dp),
-        style = TextStyle(fontSize = 18.sp),
-        fontWeight = FontWeight(800)
-    )
-    CustomTextField(
-        modifier = Modifier
-            .padding(top = 12.dp)
-            .fillMaxWidth()
-            .background(
-                color = Color(0xffb9b9b9),
-                shape = RoundedCornerShape(percent = 10)
-            )
-            .padding(horizontal = 12.dp, vertical = 10.dp),
-        leadingIcon = { Icon(Icons.Default.Email, "Email") },
-        trailingIcon = { Icon(Icons.Filled.Email, "Email") },
-        paddingLeadingIconEnd = 10.dp,
-        paddingTrailingIconStart = 10.dp
-    )
-    CustomTextField(
-        modifier = Modifier
-            .padding(top = 12.dp)
-            .fillMaxWidth()
-            .background(
-                color = Color(0xffb9b9b9),
-                shape = CircleShape
-            )
-            .padding(horizontal = 12.dp, vertical = 10.dp),
-        leadingIcon = { Icon(Icons.Default.Email, "Email") },
-        trailingIcon = { Icon(Icons.Filled.Email, "Email") },
-        paddingLeadingIconEnd = 10.dp,
-        paddingTrailingIconStart = 10.dp
-    )
-    CustomTextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 12.dp)
-            .background(
-                brush = Brush.horizontalGradient(
-                    listOf(Color(0xffa18cd1), Color(0xfffbc2eb)),
-                    startX = 0.0f,
-                    endX = 1000.0f,
-                    tileMode = TileMode.Repeated
-                ),
-                shape = CircleShape
-            )
-            .padding(horizontal = 12.dp, vertical = 10.dp),
-        leadingIcon = { Icon(Icons.Default.Email, "Email") },
-        paddingLeadingIconEnd = 10.dp
     )
 }
 
@@ -400,66 +262,11 @@ fun SnackBarView() {
     }
 }
 
-@Composable
-fun SwitchView() {
-    val checkedState = remember { mutableStateOf(true) }
-
-    Text(
-        text = "Switch",
-        modifier = Modifier.padding(top = 24.dp),
-        style = TextStyle(fontSize = 18.sp),
-        fontWeight = FontWeight(800)
-    )
-    Switch(
-        checked = checkedState.value,
-        onCheckedChange = { checkedState.value = it }
-    )
-}
-
-///
-
-@Composable
-private fun CustomTextField(
-    modifier: Modifier = Modifier,
-    paddingLeadingIconEnd: Dp = 0.dp,
-    paddingTrailingIconStart: Dp = 0.dp,
-    leadingIcon: (@Composable() () -> Unit)? = null,
-    trailingIcon: (@Composable() () -> Unit)? = null
-) {
-//    val state = savedInstanceState (saver = TextFieldValue.Saver) { TextFieldValue() }
-    val state = remember { mutableStateOf(TextFieldValue()) }
-
-    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
-        if (leadingIcon != null) {
-            leadingIcon()
-        }
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .padding(start = paddingLeadingIconEnd, end = paddingTrailingIconStart)
-        ) {
-            BasicTextField(
-                modifier = Modifier.fillMaxWidth(),
-                value = state.value,
-                onValueChange = { state.value = it }
-            )
-            if (state.value.text.isEmpty()) {
-                Text(
-                    text = "Placeholder"
-                )
-            }
-        }
-        if (trailingIcon != null) {
-            trailingIcon()
-        }
-    }
-}
-
 ///
 @Preview(showBackground = true)
 @Composable
 fun FormActivityPreview() {
-    Sample_JetpackComposeTheme {
-        FormActivityView()
-    }
+//    Sample_JetpackComposeTheme {
+    FormActivityView()
+//    }
 }

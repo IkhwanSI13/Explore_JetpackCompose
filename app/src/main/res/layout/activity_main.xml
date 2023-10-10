@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Sample Jetpack Compose"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Greeting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <Button
+        android:id="@+id/btn_theme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Theme"
+        app:layout_constraintEnd_toEndOf="@id/btn_main"
+        app:layout_constraintStart_toStartOf="@id/btn_main"
+        app:layout_constraintTop_toBottomOf="@id/btn_main" />
+
+    <Button
+        android:id="@+id/btn_animation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Layout - Animation"
+        app:layout_constraintEnd_toEndOf="@id/btn_main"
+        app:layout_constraintStart_toStartOf="@id/btn_main"
+        app:layout_constraintTop_toBottomOf="@id/btn_theme" />
+
+    <Button
+        android:id="@+id/btn_layout_form"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Layout - Form"
+        app:layout_constraintEnd_toEndOf="@id/btn_main"
+        app:layout_constraintStart_toStartOf="@id/btn_main"
+        app:layout_constraintTop_toBottomOf="@id/btn_animation" />
+
+
+    <Button
+        android:id="@+id/btn_layout_text_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Layout - TextField"
+        app:layout_constraintEnd_toEndOf="@id/btn_main"
+        app:layout_constraintStart_toStartOf="@id/btn_main"
+        app:layout_constraintTop_toBottomOf="@id/btn_layout_form" />
+
+    <Button
+        android:id="@+id/btn_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Navigation"
+        app:layout_constraintEnd_toEndOf="@id/btn_main"
+        app:layout_constraintStart_toStartOf="@id/btn_main"
+        app:layout_constraintTop_toBottomOf="@id/btn_layout_text_field" />
+
+    <Button
+        android:id="@+id/btn_state_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="State - List"
+        app:layout_constraintEnd_toEndOf="@id/btn_main"
+        app:layout_constraintStart_toStartOf="@id/btn_main"
+        app:layout_constraintTop_toBottomOf="@id/btn_navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
