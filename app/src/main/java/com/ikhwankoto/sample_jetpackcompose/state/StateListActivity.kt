@@ -103,66 +103,64 @@ fun StateListView(
     val focusTextField = remember { FocusRequester() }
     val noteTextField = rememberSaveable { mutableStateOf("") }
 
-    Sample_JetpackComposeTheme {
-        Scaffold(
-            content = {
-                Column {
-                    TopAppBar(
-                        title = {
-                            Text(text = "State List")
-                        },
-                        backgroundColor = colorResource(id = R.color.teal_700),
-                        contentColor = Color.White,
-                        elevation = 2.dp,
-                        actions = {
-                            IconButton(onClick = {
-                                onClickAddRandom(onAddItem = onAddRandomItem)
-                            }) {
-                                Icon(Icons.Default.Cake, "")
-                            }
+    Scaffold(
+        content = {
+            Column {
+                TopAppBar(
+                    title = {
+                        Text(text = "State List")
+                    },
+                    backgroundColor = colorResource(id = R.color.teal_700),
+                    contentColor = Color.White,
+                    elevation = 2.dp,
+                    actions = {
+                        IconButton(onClick = {
+                            onClickAddRandom(onAddItem = onAddRandomItem)
+                        }) {
+                            Icon(Icons.Default.Cake, "")
                         }
-                    )
-                    if (addingState) {
-                        Text(
-                            text = "Input Note",
-                            modifier = Modifier.padding(24.dp, 12.dp, 24.dp),
-                            style = TextStyle(fontSize = 18.sp),
-                            fontWeight = FontWeight(800)
-                        )
-                        OutlinedTextField(
-                            value = noteTextField.value,
-                            onValueChange = { noteTextField.value = it },
-                            modifier = Modifier
-                                .padding(24.dp, 8.dp, 24.dp)
-                                .fillMaxWidth()
-                                .focusRequester(focusTextField)
-                                .focusable(),
-                            keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
-                            keyboardActions = KeyboardActions(onDone = {
-                                onClickAdd(noteTextField, onAddItem, onUpdateAddingState)
-                            }),
-                        )
                     }
-                    LazyColumn() {
-                        items(items = items) { item ->
-                            ListNoteAdapter(context = context, item = item)
-                        }
+                )
+                if (addingState) {
+                    Text(
+                        text = "Input Note",
+                        modifier = Modifier.padding(24.dp, 12.dp, 24.dp),
+                        style = TextStyle(fontSize = 18.sp),
+                        fontWeight = FontWeight(800)
+                    )
+                    OutlinedTextField(
+                        value = noteTextField.value,
+                        onValueChange = { noteTextField.value = it },
+                        modifier = Modifier
+                            .padding(24.dp, 8.dp, 24.dp)
+                            .fillMaxWidth()
+                            .focusRequester(focusTextField)
+                            .focusable(),
+                        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
+                        keyboardActions = KeyboardActions(onDone = {
+                            onClickAdd(noteTextField, onAddItem, onUpdateAddingState)
+                        }),
+                    )
+                }
+                LazyColumn() {
+                    items(items = items) { item ->
+                        ListNoteAdapter(context = context, item = item)
                     }
                 }
-            },
-            floatingActionButton = {
-                if (!addingState)
-                    FloatingActionButton(
-                        onClick = {
-                            onUpdateAddingState(true)
-//                            focusTextField.requestFocus()
-                        }
-                    ) {
-                        Icon(Icons.Filled.Add, "", tint = Color.White)
-                    }
             }
-        )
-    }
+        },
+        floatingActionButton = {
+            if (!addingState)
+                FloatingActionButton(
+                    onClick = {
+                        onUpdateAddingState(true)
+//                            focusTextField.requestFocus()
+                    }
+                ) {
+                    Icon(Icons.Filled.Add, "", tint = Color.White)
+                }
+        }
+    )
 //    if (addingState)
 //        focusTextField.requestFocus()
 }

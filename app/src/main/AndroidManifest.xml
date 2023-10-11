@@ -29,6 +29,21 @@
             android:name=".layout.FormActivity"
             android:exported="false" />
         <activity
+            android:name=".layout.view.LazyColumnImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layout.view.lazyColumnObject.LazyColumnObjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layout.view.LazyColumnTextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layout.view.ScaffoldActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layout.view.SwitchActivity"
+            android:exported="false" />
+        <activity
             android:name=".layout.view.TextFieldActivity"
             android:exported="false" />
         <activity

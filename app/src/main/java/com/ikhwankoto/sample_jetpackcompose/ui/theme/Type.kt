@@ -16,6 +16,7 @@ private val Balsamiq = FontFamily(
     Font(R.font.balsamiq_sans_bold_italic, FontWeight.W700, style = FontStyle.Italic)
 )
 
+// TODO(Ikhwan): update compose version
 // Set of Material typography styles to start with
 val MyComposeTypography = Typography(
     body1 = TextStyle(

@@ -19,9 +19,7 @@ class AnimationActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Sample_JetpackComposeTheme {
-                Content()
-            }
+            Content()
         }
     }
 }
@@ -82,7 +80,7 @@ fun ContentTitle(title: String, desc: String) {
 @Preview(name = "Animation")
 @Composable
 fun PreviewContent() {
-    Sample_JetpackComposeTheme {
+//    Sample_JetpackComposeTheme {
         Content()
-    }
+//    }
 }

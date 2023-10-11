@@ -10,3 +10,12 @@ val MyComposeShapes = Shapes(
     medium = RoundedCornerShape(18.dp),
     large = RoundedCornerShape(0.dp)
 )
+
+/**
+ * RoundedCornerShape(x.dp)
+ * RoundedCornerShape(x.dp, x.dp, x.dp, x.dp)
+ *
+ * Usage:
+ *  1. Button - shape
+ *  2. Image - clip
+ * */
