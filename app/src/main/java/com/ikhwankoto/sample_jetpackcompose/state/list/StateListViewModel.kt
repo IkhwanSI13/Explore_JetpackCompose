@@ -1,4 +1,4 @@
-package com.ikhwankoto.sample_jetpackcompose.state
+package com.ikhwankoto.sample_jetpackcompose.state.list
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -8,12 +8,15 @@ import androidx.lifecycle.ViewModel
 
 class StateListViewModel : ViewModel() {
 
-    //MutableState<T> similar to MutableLiveData<T>, but integrated with the compose runtime.
-
-    //You declare a MutableState object in a composable three ways:
-    //    val state = remember { mutableStateOf(default) }
-    //    var value by remember { mutableStateOf(default) }
-    //    val (value, setValue) = remember { mutableStateOf(default) }
+    /**
+     * MutableState<T> similar to MutableLiveData<T>, but integrated with the compose runtime.
+     *
+     * We can declare a MutableState object in a composable three ways:
+     *  val state = remember { mutableStateOf(default) }
+     *  var value by remember { mutableStateOf(default) }
+     *  val (value, setValue) = remember { mutableStateOf(default) }
+     * */
+    //
 
     var noteItems = mutableStateListOf<NoteItem>()
         private set

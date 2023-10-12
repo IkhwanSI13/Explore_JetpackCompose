@@ -52,7 +52,7 @@ val md_theme_light_surfaceTint = Color(0xFF006397)
 val md_theme_light_outlineVariant = Color(0xFFC2C7CE)
 val md_theme_light_scrim = Color(0xFF000000)
 
-/// TODO(Ikhwan): upgrade compose, use lightColorSchema instead of lightColors
+/// TODO(Ikhwan): use Material3, use lightColorSchema instead of lightColors
 val LightColors = lightColors(
     primary = md_theme_light_primary,
     onPrimary = md_theme_light_onPrimary,
@@ -119,7 +119,7 @@ val md_theme_dark_surfaceTint = Color(0xFF93CCFF)
 val md_theme_dark_outlineVariant = Color(0xFF42474E)
 val md_theme_dark_scrim = Color(0xFF000000)
 
-/// TODO(Ikhwan): upgrade compose, use darkColorSchema instead of darkColors
+/// TODO(Ikhwan): use Material3, use darkColorSchema instead of darkColors
 val DarkColors = darkColors(
     primary = md_theme_dark_primary,
     onPrimary = md_theme_dark_onPrimary,

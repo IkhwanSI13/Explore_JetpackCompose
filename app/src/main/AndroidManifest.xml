@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ikhwankoto.sample_jetpackcompose">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -65,7 +64,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".state.StateListActivity"
+            android:name=".state.game.GameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".state.list.StateListActivity"
             android:exported="false" />
         <activity
             android:name=".useTheme.ThemeActivity"

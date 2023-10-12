@@ -1,4 +1,4 @@
-package com.ikhwankoto.sample_jetpackcompose.state
+package com.ikhwankoto.sample_jetpackcompose.state.list
 
 import com.ikhwankoto.sample_jetpackcompose.R
 import java.util.*
