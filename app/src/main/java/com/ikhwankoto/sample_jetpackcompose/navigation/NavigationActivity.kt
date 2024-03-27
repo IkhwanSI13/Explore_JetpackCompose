@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
+import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import com.ikhwankoto.sample_jetpackcompose.navigation.data.BillData
 import com.ikhwankoto.sample_jetpackcompose.navigation.screens.BillDetailScreen
