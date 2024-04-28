@@ -31,12 +31,13 @@ fun PreviewMigrateCompose() {
 
 @Composable
 fun MigrateCompose() {
-    var context = LocalContext.current
+    val context = LocalContext.current
 
     Scaffold(backgroundColor = colorResource(id = R.color.purple_200)) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .padding(it)
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

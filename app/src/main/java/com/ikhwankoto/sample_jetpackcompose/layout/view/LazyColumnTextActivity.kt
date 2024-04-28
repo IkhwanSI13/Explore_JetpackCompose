@@ -27,8 +27,10 @@ class LazyColumnTextActivity : ComponentActivity() {
 fun LazyColumnTextView() {
     val values = List(1000) { "Hello Android #$it" }
 
-    Scaffold() {
-        LazyColumn() {
+    Scaffold { padding ->
+        LazyColumn(
+            modifier = Modifier.padding(padding)
+        ) {
             items(items = values) { item ->
                 Text(item, modifier = Modifier.padding(8.dp))
             }

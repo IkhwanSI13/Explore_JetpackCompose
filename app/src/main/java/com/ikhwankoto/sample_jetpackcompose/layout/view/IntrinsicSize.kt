@@ -1,4 +1,4 @@
-package com.ikhwankoto.sample_jetpackcompose.layout
+package com.ikhwankoto.sample_jetpackcompose.layout.view
 
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -26,7 +26,6 @@ fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
     //tidak memiliki high panjang kebawah
 
     Row(
-//        modifier = modifier
         modifier = modifier.height(IntrinsicSize.Min)
     ) {
         Text(
@@ -36,7 +35,9 @@ fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
                 .wrapContentWidth(Alignment.Start),
             text = text1
         )
-        Divider(color = Color.Black, modifier = Modifier.fillMaxHeight().width(1.dp))
+        Divider(color = Color.Black, modifier = Modifier
+            .fillMaxHeight()
+            .width(1.dp))
         Text(
             modifier = Modifier
                 .weight(1f)

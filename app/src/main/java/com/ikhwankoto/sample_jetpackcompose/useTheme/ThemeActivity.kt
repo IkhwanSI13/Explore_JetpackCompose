@@ -41,9 +41,10 @@ class ThemeActivity : ComponentActivity() {
 fun ThemeContent() {
     val scrollState = rememberScrollState()
 
-    Scaffold {
+    Scaffold { padding ->
         Column(
             modifier = Modifier
+                .padding(padding)
                 .fillMaxSize()
                 .verticalScroll(scrollState)
                 .padding(24.dp)

@@ -1,4 +1,4 @@
-package com.ikhwankoto.sample_jetpackcompose.layout
+package com.ikhwankoto.sample_jetpackcompose.layout.view
 
 import android.util.Log
 import androidx.compose.foundation.background

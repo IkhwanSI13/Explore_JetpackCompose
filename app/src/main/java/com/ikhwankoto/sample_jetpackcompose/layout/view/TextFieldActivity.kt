@@ -81,6 +81,7 @@ fun TextFieldView() {
     }, content = {
         Column(
             Modifier
+                .padding(it)
                 .padding(horizontal = 24.dp)
                 .verticalScroll(rememberScrollState())
         ) {

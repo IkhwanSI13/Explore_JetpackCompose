@@ -17,7 +17,7 @@ fun MyColumn() {
     Column(
         modifier = Modifier
             .padding(8.dp)
-//            .fillMaxSize()
+            .fillMaxSize()
     ) {
         Text("Left text", Modifier.background(Color.Yellow))
         Text(
@@ -37,7 +37,7 @@ fun MyColumn() {
                 .background(color = Color.Gray)
                 .padding(12.dp)
                 .background(color = Color.Green)
-                .width(30.dp)
+                .width(60.dp)
                 .height(150.dp),
             textAlign = TextAlign.Center
         )

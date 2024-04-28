@@ -10,6 +10,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -42,13 +43,16 @@ class LazyColumnImageActivity : ComponentActivity() {
 fun LazyColumnImageView() {
     val values = List(1000) { "Hello Android #$it" }
 
-    Scaffold() {
-        ScrollingList(context = LocalContext.current)
+    Scaffold { padding ->
+        ScrollingList(
+            context = LocalContext.current,
+            modifier = Modifier.padding(padding)
+        )
     }
 }
 
 @Composable
-fun ScrollingList(context: Context) {
+fun ScrollingList(context: Context, modifier: Modifier) {
     val listSize = 100
     // We save the scrolling position with this state
     val scrollState = rememberLazyListState()

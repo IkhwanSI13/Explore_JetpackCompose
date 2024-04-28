@@ -52,6 +52,7 @@ fun SwitchView() {
         content = {
             Column(
                 Modifier
+                    .padding(it)
                     .padding(24.dp)
                     .verticalScroll(rememberScrollState())
             ) {

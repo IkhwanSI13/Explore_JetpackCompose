@@ -93,7 +93,7 @@ fun MyNavHost(navController: NavHostController, modifier: Modifier = Modifier) {
                      * Use this command:
                      * adb shell am start -d "https://yukngoding.id/RouteBill/Name%203" -a android.intent.action.VIEW
                      * */
-//                    uriPattern = "https://yukngoding.id/${NavigationRoute.RouteBill.name}/{value}"
+                    // uriPattern = "https://yukngoding.id/${NavigationRoute.RouteBill.name}/{value}"
                     /**
                      * Manifest:
                      * <data android:scheme="yukngoding" android:host="routebill" />
@@ -110,7 +110,14 @@ fun MyNavHost(navController: NavHostController, modifier: Modifier = Modifier) {
                 bill = bill,
                 onClickToBill = {
                     navController.navigateUp()
-//                    navController.popBackStack()
+
+                    /// Return with value (https://medium.com/@desilio/navigate-back-with-result-with-jetpack-compose-e91e6a6847c9)
+                    // navController.currentBackStackEntry
+                    //    ?.savedStateHandle
+                    //    ?.set("book", Book(title = text))
+                    // navController.popBackStack()
+                    //
+                    // navBackResult.savedStateHandle.get<Book>("book")
                 })
         }
     }

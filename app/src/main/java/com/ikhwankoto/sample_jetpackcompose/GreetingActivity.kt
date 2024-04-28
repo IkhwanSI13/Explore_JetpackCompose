@@ -22,6 +22,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -39,32 +40,10 @@ class GreetingActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApp {
+                MyScreenContent()
                 Greeting("Android")
-//                MyScreenContent()
             }
         }
-    }
-}
-
-/**
- * Preview just show on Android Studio.
- * The real one to execute to real device inside
- * onCreate methode, setContent function
- * */
-@Preview()
-@Composable
-fun DefaultPreview() {
-    MyApp {
-        MyScreenContent()
-    }
-//    MyApp()
-}
-
-@Preview(showBackground = true, name = "Text preview")
-@Composable
-fun DefaultPreview2() {
-    Sample_JetpackComposeTheme {
-        Greeting("Android")
     }
 }
 
@@ -85,22 +64,11 @@ fun MyApp(content: @Composable () -> Unit) {
     }
      *
      * */
-
 }
 
-//@Composable
-//fun MyApp() {
-//    Sample_JetpackComposeTheme {
-//        Surface(color = Color.Yellow) {
-//            Greeting(name = "Android")
-//        }
-//    }
-//}
-
 @Composable
-//fun MyScreenContent(names: List<String> = listOf("Android", "there")) {
-fun MyScreenContent(names: List<String> = List(1000) { "Hello Android #$it" }) {
-    val counterState = remember { mutableStateOf(0) }
+fun MyScreenContent(names: List<String> = List(5) { "Hello Android #$it" }) {
+    val counterState = remember { mutableIntStateOf(0) }
 
     Column(modifier = Modifier.fillMaxHeight()) {
         Image(
@@ -113,20 +81,9 @@ fun MyScreenContent(names: List<String> = List(1000) { "Hello Android #$it" }) {
             contentScale = ContentScale.Crop
         )
         NameList(names, Modifier.weight(1f))
-        //Weight buat nge expand si column ke value maximal
-        //jadi resultnya si counter jadi dibawah?
-//        Column(modifier = Modifier.weight(1f)) {
-//            for (name in names) {
-//                Greeting(name = name)
-//                Divider(color = Color.Black)
-//            }
-//        }
-        Counter(
-            count = counterState.value,
-            updateCount = { newCount ->
-                counterState.value = newCount
-            }
-        )
+        Counter(count = counterState.value, updateCount = { newCount ->
+            counterState.value = newCount
+        })
     }
 }
 
@@ -143,31 +100,13 @@ fun NameList(names: List<String>, modifier: Modifier = Modifier) {
 @Composable
 fun Counter(count: Int, updateCount: (Int) -> Unit) {
     Button(
-        onClick = { updateCount(count + 1) },
-        colors = ButtonDefaults.buttonColors(
+        onClick = { updateCount(count + 1) }, colors = ButtonDefaults.buttonColors(
             backgroundColor = if (count > 5) Color.Green else Color.White
         )
     ) {
         Text("I've been clicked $count times")
     }
 }
-
-//@Composable
-//fun Counter() {
-//    val count = remember { mutableStateOf(0) }
-//    Button(onClick = { count.value++ }) {
-//        Text("I've been clicked ${count.value} times")
-//    }
-//}
-
-//@Composable
-//fun MyScreenContent() {
-//    Column {
-//        Greeting("Android")
-//        Divider(color = Color.Black)
-//        Greeting("there")
-//    }
-//}
 
 @Composable
 fun Greeting(name: String) {
@@ -182,4 +121,39 @@ fun Greeting(name: String) {
             .clickable(onClick = { isSelected = !isSelected })
     )
 //    Text(text = "Hello $name!", modifier = Modifier.padding(24.dp))
+}
+
+/**
+ * Preview just show on Android Studio.
+ * The real one to execute to real device inside
+ * onCreate methode, setContent function
+ * */
+@Preview()
+@Composable
+fun PreviewFinal() {
+    MyApp {
+        
+        MyScreenContent()
+        Greeting("Android")
+    }
+}
+
+@Preview()
+@Composable
+fun PreviewMyScreenContent() {
+    MyScreenContent()
+}
+
+@Preview(showBackground = true, name = "Text preview")
+@Composable
+fun PreviewGreeting() {
+    Greeting("Android")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview3() {
+    Counter(count = 2, updateCount = { newCount ->
+
+    })
 }

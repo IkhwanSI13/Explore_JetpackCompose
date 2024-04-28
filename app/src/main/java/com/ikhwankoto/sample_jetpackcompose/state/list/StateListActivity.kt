@@ -114,7 +114,9 @@ fun StateListView(
 
     Scaffold(
         content = {
-            Column {
+            Column(
+                modifier = Modifier.padding(it)
+            ) {
                 TopAppBar(
                     title = {
                         Text(text = "State List")

@@ -6,7 +6,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
+import androidx.compose.material.BottomAppBar
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.runtime.Composable
@@ -46,8 +51,10 @@ fun ScaffoldView() {
                 Text(text = "Bottom bar", modifier = Modifier.padding(8.dp))
             }
         }
-    ) { innerPadding ->
-        BodyContent()
+    ) { padding ->
+        BodyContent(
+            modifier = Modifier.padding(padding)
+        )
     }
 }
 

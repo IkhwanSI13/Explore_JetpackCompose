@@ -3,16 +3,20 @@ package com.ikhwankoto.sample_jetpackcompose.animation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.*
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ikhwankoto.sample_jetpackcompose.ui.theme.*
+import com.ikhwankoto.sample_jetpackcompose.ui.theme.Sample_JetpackComposeTheme
 
 class AnimationActivity : ComponentActivity() {
 
@@ -28,9 +32,10 @@ class AnimationActivity : ComponentActivity() {
 fun Content() {
     val scrollState = rememberScrollState()
 
-    Scaffold {
+    Scaffold { padding ->
         Column(
             modifier = Modifier
+                .padding(padding)
                 .fillMaxSize()
                 .verticalScroll(scrollState)
                 .padding(24.dp)
@@ -80,7 +85,7 @@ fun ContentTitle(title: String, desc: String) {
 @Preview(name = "Animation")
 @Composable
 fun PreviewContent() {
-//    Sample_JetpackComposeTheme {
+    Sample_JetpackComposeTheme {
         Content()
-//    }
+    }
 }

@@ -1,4 +1,4 @@
-package com.ikhwankoto.sample_jetpackcompose.layout
+package com.ikhwankoto.sample_jetpackcompose.layout.view
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
